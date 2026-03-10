@@ -34,6 +34,32 @@ Kurze Anweisungen zur Nutzung lokal
 4. Lint-Probleme automatisch beheben
    - npm run lint:fix
 
+## Setup für Kolleg:innen (schnell)
+
+1. Repository klonen und Abhängigkeiten installieren
+   - git clone <repo>
+   - cd <repo>
+   - npm ci
+
+2. Husky-Hooks aktivieren (wird normalerweise automatisch beim Installieren ausgeführt)
+   - npm run prepare
+
+3. Umgebungsvariablen
+   - Kopiere `.env.example` nach `.env` und fülle die Werte aus. Niemals echte Secrets ins Repo committen.
+
+4. Formatierung und Linting lokal ausführen
+   - Formatieren: `npm run format`
+   - Lint prüfen: `npm run lint`
+   - Probleme automatisch beheben: `npm run lint:fix`
+
+5. Pre-Commit Hook
+   - Beim Commit wird automatisch lint-staged ausgeführt (pre-commit Hook), das gestagte Dateien mit Prettier formatiert und ESLint-Fixes anwendet.
+
+Hinweise
+
+- Stelle sicher, dass `package-lock.json` committed ist; `node_modules/` darf nicht versioniert werden (ist in `.gitignore`).
+- Wenn Probleme mit Hooks auftreten: `npm ci` + `npm run prepare` ausführen.
+
 Empfehlungen
 
 - VS Code: Prettier-Extension installieren und "Format On Save" aktivieren.
