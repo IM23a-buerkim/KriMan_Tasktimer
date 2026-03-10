@@ -41,24 +41,25 @@ Kurze Anweisungen zur Nutzung lokal
    - cd <repo>
    - npm ci
 
-2. Husky-Hooks aktivieren (wird normalerweise automatisch beim Installieren ausgeführt)
-   - npm run prepare
-
-3. Umgebungsvariablen
+2. Umgebungsvariablen
    - Kopiere `.env.example` nach `.env` und fülle die Werte aus. Niemals echte Secrets ins Repo committen.
 
-4. Formatierung und Linting lokal ausführen
+3. Formatierung und Linting lokal ausführen
    - Formatieren: `npm run format`
    - Lint prüfen: `npm run lint`
    - Probleme automatisch beheben: `npm run lint:fix`
 
-5. Pre-Commit Hook
-   - Beim Commit wird automatisch lint-staged ausgeführt (pre-commit Hook), das gestagte Dateien mit Prettier formatiert und ESLint-Fixes anwendet.
+Hinweis zur Hook-Konfiguration
+
+- Die lokalen Husky pre-commit Hooks wurden entfernt. Stattdessen laufen Formatierungs- und Lint-Prüfungen zentral in der CI (.github/workflows/lint-and-format.yml) bei jedem Push / Pull Request.
+- Lokal kannst du dieselben Prüfungen manuell ausführen:
+  - npm ci
+  - npm run format
+  - npm run lint
 
 Hinweise
 
 - Stelle sicher, dass `package-lock.json` committed ist; `node_modules/` darf nicht versioniert werden (ist in `.gitignore`).
-- Wenn Probleme mit Hooks auftreten: `npm ci` + `npm run prepare` ausführen.
 
 Empfehlungen
 

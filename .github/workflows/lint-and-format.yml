@@ -1,5 +1,8 @@
 name: Lint and Format
 
+permissions:
+  contents: write
+
 on:
   push:
   pull_request:

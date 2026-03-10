@@ -1,22 +1,17 @@
 {
+  "name": "kriman-tasktimer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Task timer project",
+  "license": "MIT",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ]
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "devDependencies": {
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
-    "husky": "^8.0.0",
-    "lint-staged": "^14.0.0",
     "prettier": "^3.8.1"
   }
 }
