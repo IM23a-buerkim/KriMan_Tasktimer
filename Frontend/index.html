@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taskplaner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <span class="logo">ARBEITSZEITERFASSUNG</span>
+    </div>
+    <div class="header-right">
+      <button id="btnNeuesProjekt" class="btn-outline">+ Projekt</button>
+      <button id="btnZeitEintragen" class="btn-primary">+ Zeit eintragen</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-title">Projekte</div>
+    <div id="projektListe" class="projekt-liste">
+      <div class="loading">Lade Projekte...</div>
+    </div>
+  </main>
+
+  <!-- Neues Projekt -->
+  <div id="modalProjekt" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalProjektTitel">Neues Projekt</span>
+        <button class="modal-close" id="closeProjekt">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="projektEditId" />
+        <label>Name *</label>
+        <input type="text" id="projektName" placeholder="Projektname" />
+        <label>Beschreibung</label>
+        <textarea id="projektBeschreibung" placeholder="Optionale Beschreibung" rows="3"></textarea>
+        <div class="modal-actions">
+          <button class="btn-outline" id="cancelProjekt">Abbrechen</button>
+          <button class="btn-primary" id="saveProjekt">Speichern</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zeit eintragen -->
+  <div id="modalZeit" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Zeit eintragen</span>
+        <button class="modal-close" id="closeZeit">✕</button>
+      </div>
+      <div class="modal-body">
+        <label>Projekt *</label>
+        <select id="zeitProjekt">
+          <option value="">Projekt wählen...</option>
+        </select>
+        <label>Datum & Startzeit *</label>
+        <input type="datetime-local" id="zeitStart" />
+        <label>Stunden *</label>
+        <input type="number" id="zeitStunden" min="0.5" max="24" step="0.5" placeholder="z.B. 2.5" />
+        <div class="modal-actions">
+          <button class="btn-outline" id="cancelZeit">Abbrechen</button>
+          <button class="btn-primary" id="saveZeit">Speichern</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bestätigung löschen -->
+  <div id="modalDelete" class="modal-overlay hidden">
+    <div class="modal modal-small">
+      <div class="modal-header">
+        <span class="modal-title">Löschen bestätigen</span>
+        <button class="modal-close" id="closeDelete">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="deleteMessage">Sicher löschen?</p>
+        <div class="modal-actions">
+          <button class="btn-outline" id="cancelDelete">Abbrechen</button>
+          <button class="btn-danger" id="confirmDelete">Löschen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
