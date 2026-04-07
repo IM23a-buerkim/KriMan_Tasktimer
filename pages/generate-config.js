@@ -13,5 +13,5 @@ export const SUPABASE_URL = '${env.SUPABASE_URL}';
 export const SUPABASE_KEY = '${env.SUPABASE_KEY}';
 `
 
-writeFileSync('Frontend/config.js', config)
+writeFileSync('config.js', config)
 console.log('✅ config.js generiert')
