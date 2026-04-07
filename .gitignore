@@ -6,4 +6,6 @@ coverage/
 .vscode/
 .idea/
 /.husky/_
+Frontend/generate-config.js
+Frontend/config.js
 
